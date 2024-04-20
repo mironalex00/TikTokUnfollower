@@ -2,9 +2,9 @@ function recursiveUnfollow(count = 1) {
     //  Parent node
     const parentItem = document.evaluate('.//*[contains(concat(" ", normalize-space(@class), " "), " css-")][contains(concat(" ", normalize-space(@class), " "), "-DivUserListContainer")]', document.body, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)?.singleNodeValue;
     //  List item
-    const item = parentItem.firstElementChild;
+    const item = parentItem?.firstElementChild;
     //  Current scroll top and new scroll top
-    const currentScrollTop = parentItem.scrollTop;
+    const currentScrollTop = (parentItem?.scrollTop) ?? 0;
     const newScrollTop = currentScrollTop + 1000;
     //  Check if list item exists 
     if (!item) {
